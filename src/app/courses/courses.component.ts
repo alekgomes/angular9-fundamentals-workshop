@@ -14,7 +14,7 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetSelectedCouse()
-    this.courses = this.coursesService.courses
+    this.courses = this.coursesService.all()
   }
 
   resetSelectedCouse() {    
@@ -33,11 +33,12 @@ export class CoursesComponent implements OnInit {
   }
 
   deleteCourse(courseId) {
-    console.log(courseId)
+    this.coursesService.delete(courseId)
   }
 
-  saveCourse() {
-    console.log("saveCoure")
+  saveCourse(course) {
+    if(course.id) this.coursesService.update(course)
+    this.coursesService.create(course.id)    
   }
 
 }
