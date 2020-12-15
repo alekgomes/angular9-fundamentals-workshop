@@ -2,10 +2,31 @@
   "courses": [
     {
       "id": 1,
-      "title": "Angular 9 Fundamentals",
+      "title": "Angular 9 Fundamentalsz",
       "description": "Learn the fundamentals of Angular 9",
       "percentComplete": 26,
       "favorite": true
+    },
+    {
+      "id": 2,
+      "title": "JS really HARD parts",
+      "description": "Learn the fundamentals of Angular 9",
+      "percentComplete": 26,
+      "favorite": true
+    },
+    {
+      "title": "Angular Treinamento",
+      "description": "Treinamento Angular",
+      "percentComplete": 0,
+      "favorite": true,
+      "id": 3
+    },
+    {
+      "title": "Aquele curso",
+      "description": "cursão ",
+      "percentComplete": 0,
+      "favorite": false,
+      "id": 4
     }
   ]
 }

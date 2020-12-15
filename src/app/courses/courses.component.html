@@ -32,7 +32,7 @@
                     <span>Select Course</span>                    
                 </mat-card-title>
             </mat-card-header>
-            <form #form="ngForm" (submit)="saveCourse(selectCourse)">
+            <form #form="ngForm" (submit)="saveCourse(currentCourse)">
             <mat-card-content>
                 <mat-form-field>
                     <input matInput

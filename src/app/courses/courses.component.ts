@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { CoursesService } from '../shared/services/courses.service';
 
@@ -14,7 +15,7 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetSelectedCouse()
-    this.courses = this.coursesService.all()
+    this.loadCourses()
   }
 
   resetSelectedCouse() {    
@@ -34,11 +35,23 @@ export class CoursesComponent implements OnInit {
 
   deleteCourse(courseId) {
     this.coursesService.delete(courseId)
+      .subscribe(result => this.loadCourses())
+  }
+
+  loadCourses() {
+    this.coursesService.all(). // retorna um Observable
+    subscribe(courses => this.courses = courses) // .subcribe() parecido com .then()
   }
 
   saveCourse(course) {
-    if(course.id) this.coursesService.update(course)
-    this.coursesService.create(course.id)    
+    if(course.id) {
+      this.coursesService.update(course)
+        .subscribe(result => this.loadCourses())
+    } else {
+      this.coursesService.create(course)
+        .subscribe(result => this.loadCourses())
+    }
+    this.resetSelectedCouse()  
   }
 
 }
